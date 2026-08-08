@@ -3,13 +3,16 @@
 
 def contar(lista):
     """Devuelve cuántos elementos tiene la lista. No uses len()."""
-    return lista.length() 
-    pass
+    return len(lista) 
 
 
+datos = [1, 2, 3, 4, 5]
 def suma(lista):
     """Devuelve la suma de los elementos. No uses sum()."""
-    pass
+    total = 0
+    for elemento in lista:
+        total += elemento
+    return total 
 
 
 def maximo(lista):

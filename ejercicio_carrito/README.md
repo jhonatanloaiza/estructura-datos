@@ -30,12 +30,14 @@ decisiones están en [`spec.md`](spec.md), cada una con su razón.
 | [`carrito_dict.py`](carrito_dict.py)     | Implementación con **diccionario** — O(1) promedio                   |
 | [`autopsia.md`](autopsia.md)             | Diagnóstico del error de las dos cajas, con **3 diagramas** de memoria |
 | [`VERIFICACION.txt`](VERIFICACION.txt)   | Salida real de las pruebas (en rojo y en verde) y el historial de Git |
+| [`DOCUMENTACION.md`](DOCUMENTACION.md)   | **Documentación completa**: el código explicado línea por línea, las pruebas, la complejidad medida y un glosario |
 
 ---
 
 ## Cómo ejecutar
 
-Requiere Python 3.9 o superior y `pytest`.
+Requiere Python 3.10 o superior y `pytest`. (El mínimo lo fija la anotación
+`int | None` de `carrito_lista.py`, que es sintaxis de 3.10.)
 
 ```bash
 python -m pip install pytest

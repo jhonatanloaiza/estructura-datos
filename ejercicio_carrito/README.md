@@ -128,19 +128,22 @@ git log --oneline
 ```
 
 ```
-(último)  Documenta el diagnostico del error de las dos cajas
-45ccd36   Implementa el carrito con lista de pares y con diccionario   <- VERDE
-7907dda   Define el contrato del TAD Carrito y sus pruebas             <- ROJO
+7ee6780   Add 'clase3/' from commit '2b10c28...'
+2b10c28   Agrega la documentacion completa del trabajo
+1f8ea3e   Documenta el diagnostico del error de las dos cajas
+cac09f8   Implementa el carrito con lista de pares y con diccionario   <- VERDE
+bc82066   Define el contrato del TAD Carrito y sus pruebas             <- ROJO
+2e4f5f0   agrego clase 1 y 2                                           <- clases previas
 ```
 
-En el commit `7907dda` existen `spec.md` y `test_carrito.py` pero todavía no
+En el commit `bc82066` existen `spec.md` y `test_carrito.py` pero todavía no
 existe ninguna implementación, así que las pruebas fallan al importar. La salida
 literal de esa ejecución está en [`VERIFICACION.txt`](VERIFICACION.txt).
 
 Para comprobarlo sin creer en el archivo, se puede volver a ese commit y ejecutar:
 
 ```bash
-git stash --include-untracked && git checkout 7907dda && python -m pytest -q
+git stash --include-untracked && git checkout bc82066 && python -m pytest -q
 ```
 
 Y para regresar:
@@ -148,6 +151,12 @@ Y para regresar:
 ```bash
 git checkout main && git stash pop
 ```
+
+Un detalle sobre esa comprobación: el ejercicio vive en `clase3/` del
+repositorio del curso, pero sus commits se crearon cuando era un repositorio
+propio. Al volver a `bc82066` el árbol de trabajo queda con `spec.md` y
+`test_carrito.py` **en la raíz** (y `clase1/`, `clase2/`, `clase3/`
+desaparecen hasta que regreses a `main`), así que pytest se ejecuta desde ahí.
 
 ---
 

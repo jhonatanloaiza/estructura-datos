@@ -1,23 +1,26 @@
 ===========================================================
  VERIFICACION DEL EJERCICIO - TAD Carrito
 ===========================================================
- Fecha  : 2026-08-18 17:36
+ Fecha  : 2026-08-18 18:28
  Python : Python 3.12.10
  pytest : pytest 9.1.1
+
+ Nota: las rutas absolutas del equipo se acortaron a
+       <carpeta del proyecto> y <instalacion de Python>.
+       Todo lo demas es salida literal de las herramientas.
 
 
 -----------------------------------------------------------
  1) PRUEBAS EN ROJO
-    commit 7907dda - existen spec.md y test_carrito.py,
+    commit bc82066 - existen spec.md y test_carrito.py,
     todavia NO existe ninguna implementacion.
 -----------------------------------------------------------
-
 =================================== ERRORS ====================================
 ______________________ ERROR collecting test_carrito.py _______________________
-ImportError while importing test module 'C:\Users\jhona\OneDrive\Documentos\claude\estructura de datos\ejercicio_carrito\test_carrito.py'.
+ImportError while importing test module '<carpeta del proyecto>\test_carrito.py'.
 Hint: make sure your test modules/packages have valid Python names.
 Traceback:
-C:\Users\jhona\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+<instalacion de Python>\Lib\importlib\__init__.py:90: in import_module
     return _bootstrap._gcd_import(name[level:], package, level)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 test_carrito.py:31: in <module>
@@ -30,7 +33,7 @@ ERROR test_carrito.py
 
 -----------------------------------------------------------
  2) PRUEBAS EN VERDE
-    commit 45ccd36 - con carrito_lista.py y carrito_dict.py,
+    commit cac09f8 - con carrito_lista.py y carrito_dict.py,
     SIN haber modificado test_carrito.py.
 -----------------------------------------------------------
 ........................................................................ [ 78%]
@@ -43,12 +46,16 @@ ERROR test_carrito.py
  3) EJEMPLOS DE LA DOCUMENTACION (doctests)
 -----------------------------------------------------------
 ..............                                                           [100%]
-14 passed in 0.16s
+14 passed in 0.13s
 
 -----------------------------------------------------------
  4) HISTORIAL DE GIT
-    (al generar este archivo; el commit que lo agrega,
-     junto con autopsia.md y README.md, es posterior)
+    El ejercicio vive en clase3/ del repositorio del curso.
+    Sus cuatro commits se conservaron al integrarlo.
 -----------------------------------------------------------
-45ccd36 (HEAD -> main) Implementa el carrito con lista de pares y con diccionario
-7907dda Define el contrato del TAD Carrito y sus pruebas
+7ee6780 Add 'clase3/' from commit '2b10c28f9168bba642b89eca345194b5d3d19f4f'
+2b10c28 Agrega la documentacion completa del trabajo
+1f8ea3e Documenta el diagnostico del error de las dos cajas
+cac09f8 Implementa el carrito con lista de pares y con diccionario
+bc82066 Define el contrato del TAD Carrito y sus pruebas
+2e4f5f0 agrego clase 1 y 2

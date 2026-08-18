@@ -1,0 +1,54 @@
+===========================================================
+ VERIFICACION DEL EJERCICIO - TAD Carrito
+===========================================================
+ Fecha  : 2026-08-18 17:36
+ Python : Python 3.12.10
+ pytest : pytest 9.1.1
+
+
+-----------------------------------------------------------
+ 1) PRUEBAS EN ROJO
+    commit 7907dda - existen spec.md y test_carrito.py,
+    todavia NO existe ninguna implementacion.
+-----------------------------------------------------------
+
+=================================== ERRORS ====================================
+______________________ ERROR collecting test_carrito.py _______________________
+ImportError while importing test module 'C:\Users\jhona\OneDrive\Documentos\claude\estructura de datos\ejercicio_carrito\test_carrito.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\jhona\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test_carrito.py:31: in <module>
+    from carrito_lista import Carrito as CarritoLista
+E   ModuleNotFoundError: No module named 'carrito_lista'
+=========================== short test summary info ===========================
+ERROR test_carrito.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.43s
+
+-----------------------------------------------------------
+ 2) PRUEBAS EN VERDE
+    commit 45ccd36 - con carrito_lista.py y carrito_dict.py,
+    SIN haber modificado test_carrito.py.
+-----------------------------------------------------------
+........................................................................ [ 78%]
+....................                                                     [100%]
+92 passed in 0.13s
+
+    46 casos de prueba x 2 implementaciones = 92.
+
+-----------------------------------------------------------
+ 3) EJEMPLOS DE LA DOCUMENTACION (doctests)
+-----------------------------------------------------------
+..............                                                           [100%]
+14 passed in 0.16s
+
+-----------------------------------------------------------
+ 4) HISTORIAL DE GIT
+    (al generar este archivo; el commit que lo agrega,
+     junto con autopsia.md y README.md, es posterior)
+-----------------------------------------------------------
+45ccd36 (HEAD -> main) Implementa el carrito con lista de pares y con diccionario
+7907dda Define el contrato del TAD Carrito y sus pruebas

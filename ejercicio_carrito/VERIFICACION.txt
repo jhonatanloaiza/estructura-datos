@@ -12,7 +12,7 @@
 
 -----------------------------------------------------------
  1) PRUEBAS EN ROJO
-    commit bc82066 - existen spec.md y test_carrito.py,
+    commit 0346309 - existen spec.md y test_carrito.py,
     todavia NO existe ninguna implementacion.
 -----------------------------------------------------------
 =================================== ERRORS ====================================
@@ -33,7 +33,7 @@ ERROR test_carrito.py
 
 -----------------------------------------------------------
  2) PRUEBAS EN VERDE
-    commit cef04f7 - con carrito_lista.py y carrito_dict.py,
+    commit ce1c80c - con carrito_lista.py y carrito_dict.py,
     SIN haber modificado test_carrito.py.
 -----------------------------------------------------------
 ........................................................................ [ 78%]
@@ -53,9 +53,9 @@ ERROR test_carrito.py
     El ejercicio vive en ejercicio_carrito/ del repositorio del curso.
     Sus cuatro commits se conservaron al integrarlo.
 -----------------------------------------------------------
-7aa445f Add 'clase3/' from commit '2b10c28f9168bba642b89eca345194b5d3d19f4f'
-0364d5a Agrega la documentacion completa del trabajo
-b616fea Documenta el diagnostico del error de las dos cajas
-cef04f7 Implementa el carrito con lista de pares y con diccionario
-bc82066 Define el contrato del TAD Carrito y sus pruebas
+e322065 Integra el ejercicio del carrito en el repositorio del curso
+8016e00 Agrega la documentacion completa del trabajo
+b0e25d7 Documenta el diagnostico del error de las dos cajas
+ce1c80c Implementa el carrito con lista de pares y con diccionario
+0346309 Define el contrato del TAD Carrito y sus pruebas
 c0750d2 agrego clase 1 y 2

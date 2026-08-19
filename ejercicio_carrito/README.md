@@ -128,27 +128,22 @@ git log --oneline
 ```
 
 ```
-7aa445f   Add 'clase3/' from commit '2b10c28...'                      <- ver nota abajo
-0364d5a   Agrega la documentacion completa del trabajo
-b616fea   Documenta el diagnostico del error de las dos cajas
-cef04f7   Implementa el carrito con lista de pares y con diccionario   <- VERDE
-bc82066   Define el contrato del TAD Carrito y sus pruebas             <- ROJO
+e322065   Integra el ejercicio del carrito en el repositorio del curso
+8016e00   Agrega la documentacion completa del trabajo
+b0e25d7   Documenta el diagnostico del error de las dos cajas
+ce1c80c   Implementa el carrito con lista de pares y con diccionario   <- VERDE
+0346309   Define el contrato del TAD Carrito y sus pruebas             <- ROJO
 c0750d2   agrego clase 1 y 2                                           <- clases previas
 ```
 
-El commit `7aa445f` menciona `clase3/` porque ese era el nombre de la carpeta
-cuando se integró el ejercicio. Después se renombró a `ejercicio_carrito/`, pero
-un mensaje de commit ya escrito no cambia: el historial dice lo que dijo en su
-momento, y eso es correcto.
-
-En el commit `bc82066` existen `spec.md` y `test_carrito.py` pero todavía no
+En el commit `0346309` existen `spec.md` y `test_carrito.py` pero todavía no
 existe ninguna implementación, así que las pruebas fallan al importar. La salida
 literal de esa ejecución está en [`VERIFICACION.txt`](VERIFICACION.txt).
 
 Para comprobarlo sin creer en el archivo, se puede volver a ese commit y ejecutar:
 
 ```bash
-git stash --include-untracked && git checkout bc82066 && python -m pytest -q
+git stash --include-untracked && git checkout 0346309 && python -m pytest -q
 ```
 
 Y para regresar:
@@ -157,11 +152,10 @@ Y para regresar:
 git checkout main && git stash pop
 ```
 
-Un detalle sobre esa comprobación: el ejercicio vive en `ejercicio_carrito/` del
-repositorio del curso, pero sus commits se crearon cuando era un repositorio
-propio. Al volver a `bc82066` el árbol de trabajo queda con `spec.md` y
-`test_carrito.py` **en la raíz** (y `clase1/`, `clase2/`, `ejercicio_carrito/`
-desaparecen hasta que regreses a `main`), así que pytest se ejecuta desde ahí.
+Al volver a `0346309` el árbol de trabajo queda solo con
+`ejercicio_carrito/spec.md` y `ejercicio_carrito/test_carrito.py`; `clase1/` y
+`clase2/` desaparecen hasta que regreses a `main`. Ejecuta pytest desde
+`ejercicio_carrito/`, igual que siempre.
 
 ---
 

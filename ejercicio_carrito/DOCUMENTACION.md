@@ -88,9 +88,9 @@ antes que el código**, y no al revés para que dieran verde.
 ### 2.1 Las tres etapas
 
 ```
-bc82066  Define el contrato del TAD Carrito y sus pruebas          → ROJO
-cef04f7  Implementa el carrito con lista de pares y con diccionario → VERDE
-b616fea  Documenta el diagnostico del error de las dos cajas
+0346309  Define el contrato del TAD Carrito y sus pruebas          → ROJO
+ce1c80c  Implementa el carrito con lista de pares y con diccionario → VERDE
+b0e25d7  Documenta el diagnostico del error de las dos cajas
 ```
 
 **Etapa 1 (rojo).** Solo existen `spec.md` y `test_carrito.py`. Las pruebas ya
@@ -128,7 +128,7 @@ la única manera de saber que funciona.
 El historial se puede auditar. Volver al commit rojo y ejecutar las pruebas ahí:
 
 ```bash
-git checkout bc82066 && python -m pytest -q
+git checkout 0346309 && python -m pytest -q
 ```
 
 Aparecen solo `spec.md` y `test_carrito.py`, y pytest falla al importar. Para
@@ -138,11 +138,10 @@ regresar:
 git checkout main
 ```
 
-Un detalle sobre esa comprobación: el ejercicio vive en `ejercicio_carrito/` del
-repositorio del curso, pero sus commits se crearon cuando era un repositorio
-propio. Al volver a `bc82066` el árbol de trabajo queda con `spec.md` y
-`test_carrito.py` **en la raíz** (y `clase1/`, `clase2/`, `ejercicio_carrito/`
-desaparecen hasta que regreses a `main`), así que pytest se ejecuta desde ahí.
+Al volver a `0346309` el árbol de trabajo queda solo con
+`ejercicio_carrito/spec.md` y `ejercicio_carrito/test_carrito.py`; `clase1/` y
+`clase2/` desaparecen hasta que regreses a `main`. Ejecuta pytest desde
+`ejercicio_carrito/`, igual que siempre.
 
 ---
 
@@ -937,7 +936,7 @@ git log --oneline --decorate
 **Comprobar que las pruebas estaban en rojo antes de la implementación:**
 
 ```bash
-git checkout bc82066 && python -m pytest -q
+git checkout 0346309 && python -m pytest -q
 ```
 
 Para regresar:
@@ -946,11 +945,10 @@ Para regresar:
 git checkout main
 ```
 
-Un detalle sobre esa comprobación: el ejercicio vive en `ejercicio_carrito/` del
-repositorio del curso, pero sus commits se crearon cuando era un repositorio
-propio. Al volver a `bc82066` el árbol de trabajo queda con `spec.md` y
-`test_carrito.py` **en la raíz** (y `clase1/`, `clase2/`, `ejercicio_carrito/`
-desaparecen hasta que regreses a `main`), así que pytest se ejecuta desde ahí.
+Al volver a `0346309` el árbol de trabajo queda solo con
+`ejercicio_carrito/spec.md` y `ejercicio_carrito/test_carrito.py`; `clase1/` y
+`clase2/` desaparecen hasta que regreses a `main`. Ejecuta pytest desde
+`ejercicio_carrito/`, igual que siempre.
 
 La salida literal de todas estas ejecuciones está guardada en
 [`VERIFICACION.txt`](VERIFICACION.txt).
@@ -1028,7 +1026,7 @@ escribió antes que el código.
 | `autopsia.md` con el diagnóstico                                    | [`autopsia.md`](autopsia.md) §1–§9                               | ✅ |
 | Los **dos** diagramas de memoria                                    | [`autopsia.md`](autopsia.md) §4, §7 y §10 — **tres**             | ✅ |
 | La corrección explicada                                             | [`autopsia.md`](autopsia.md) §9–§12                              | ✅ |
-| Historial de Git: pruebas en rojo antes de la implementación        | commits `bc82066` → `cef04f7`, auditable con `git checkout`      | ✅ |
+| Historial de Git: pruebas en rojo antes de la implementación        | commits `0346309` → `ce1c80c`, auditable con `git checkout`      | ✅ |
 | **Restricción:** sin `collections.Counter`                          | ninguna implementación importa nada                              | ✅ |
 | **Restricción:** un solo archivo de pruebas, sin modificar          | fixture parametrizada; nada en él menciona lista ni diccionario  | ✅ |
 | **Restricción:** diagramas con flechas entre variables y objetos    | los tres diagramas de `autopsia.md`                              | ✅ |

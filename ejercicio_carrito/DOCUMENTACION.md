@@ -89,8 +89,8 @@ antes que el código**, y no al revés para que dieran verde.
 
 ```
 bc82066  Define el contrato del TAD Carrito y sus pruebas          → ROJO
-cac09f8  Implementa el carrito con lista de pares y con diccionario → VERDE
-1f8ea3e  Documenta el diagnostico del error de las dos cajas
+cef04f7  Implementa el carrito con lista de pares y con diccionario → VERDE
+b616fea  Documenta el diagnostico del error de las dos cajas
 ```
 
 **Etapa 1 (rojo).** Solo existen `spec.md` y `test_carrito.py`. Las pruebas ya
@@ -1028,7 +1028,7 @@ escribió antes que el código.
 | `autopsia.md` con el diagnóstico                                    | [`autopsia.md`](autopsia.md) §1–§9                               | ✅ |
 | Los **dos** diagramas de memoria                                    | [`autopsia.md`](autopsia.md) §4, §7 y §10 — **tres**             | ✅ |
 | La corrección explicada                                             | [`autopsia.md`](autopsia.md) §9–§12                              | ✅ |
-| Historial de Git: pruebas en rojo antes de la implementación        | commits `bc82066` → `cac09f8`, auditable con `git checkout`      | ✅ |
+| Historial de Git: pruebas en rojo antes de la implementación        | commits `bc82066` → `cef04f7`, auditable con `git checkout`      | ✅ |
 | **Restricción:** sin `collections.Counter`                          | ninguna implementación importa nada                              | ✅ |
 | **Restricción:** un solo archivo de pruebas, sin modificar          | fixture parametrizada; nada en él menciona lista ni diccionario  | ✅ |
 | **Restricción:** diagramas con flechas entre variables y objetos    | los tres diagramas de `autopsia.md`                              | ✅ |

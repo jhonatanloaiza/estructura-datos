@@ -128,15 +128,15 @@ git log --oneline
 ```
 
 ```
-7ee6780   Add 'clase3/' from commit '2b10c28...'                      <- ver nota abajo
-2b10c28   Agrega la documentacion completa del trabajo
-1f8ea3e   Documenta el diagnostico del error de las dos cajas
-cac09f8   Implementa el carrito con lista de pares y con diccionario   <- VERDE
+7aa445f   Add 'clase3/' from commit '2b10c28...'                      <- ver nota abajo
+0364d5a   Agrega la documentacion completa del trabajo
+b616fea   Documenta el diagnostico del error de las dos cajas
+cef04f7   Implementa el carrito con lista de pares y con diccionario   <- VERDE
 bc82066   Define el contrato del TAD Carrito y sus pruebas             <- ROJO
-2e4f5f0   agrego clase 1 y 2                                           <- clases previas
+c0750d2   agrego clase 1 y 2                                           <- clases previas
 ```
 
-El commit `7ee6780` menciona `clase3/` porque ese era el nombre de la carpeta
+El commit `7aa445f` menciona `clase3/` porque ese era el nombre de la carpeta
 cuando se integró el ejercicio. Después se renombró a `ejercicio_carrito/`, pero
 un mensaje de commit ya escrito no cambia: el historial dice lo que dijo en su
 momento, y eso es correcto.

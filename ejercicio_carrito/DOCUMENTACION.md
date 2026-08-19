@@ -138,10 +138,10 @@ regresar:
 git checkout main
 ```
 
-Un detalle sobre esa comprobación: el ejercicio vive en `clase3/` del
+Un detalle sobre esa comprobación: el ejercicio vive en `actividad_carrito/` del
 repositorio del curso, pero sus commits se crearon cuando era un repositorio
 propio. Al volver a `bc82066` el árbol de trabajo queda con `spec.md` y
-`test_carrito.py` **en la raíz** (y `clase1/`, `clase2/`, `clase3/`
+`test_carrito.py` **en la raíz** (y `clase1/`, `clase2/`, `actividad_carrito/`
 desaparecen hasta que regreses a `main`), así que pytest se ejecuta desde ahí.
 
 ---
@@ -946,10 +946,10 @@ Para regresar:
 git checkout main
 ```
 
-Un detalle sobre esa comprobación: el ejercicio vive en `clase3/` del
+Un detalle sobre esa comprobación: el ejercicio vive en `actividad_carrito/` del
 repositorio del curso, pero sus commits se crearon cuando era un repositorio
 propio. Al volver a `bc82066` el árbol de trabajo queda con `spec.md` y
-`test_carrito.py` **en la raíz** (y `clase1/`, `clase2/`, `clase3/`
+`test_carrito.py` **en la raíz** (y `clase1/`, `clase2/`, `actividad_carrito/`
 desaparecen hasta que regreses a `main`), así que pytest se ejecuta desde ahí.
 
 La salida literal de todas estas ejecuciones está guardada en

@@ -128,13 +128,18 @@ git log --oneline
 ```
 
 ```
-7ee6780   Add 'clase3/' from commit '2b10c28...'
+7ee6780   Add 'clase3/' from commit '2b10c28...'                      <- ver nota abajo
 2b10c28   Agrega la documentacion completa del trabajo
 1f8ea3e   Documenta el diagnostico del error de las dos cajas
 cac09f8   Implementa el carrito con lista de pares y con diccionario   <- VERDE
 bc82066   Define el contrato del TAD Carrito y sus pruebas             <- ROJO
 2e4f5f0   agrego clase 1 y 2                                           <- clases previas
 ```
+
+El commit `7ee6780` menciona `clase3/` porque ese era el nombre de la carpeta
+cuando se integró el ejercicio. Después se renombró a `actividad_carrito/`, pero
+un mensaje de commit ya escrito no cambia: el historial dice lo que dijo en su
+momento, y eso es correcto.
 
 En el commit `bc82066` existen `spec.md` y `test_carrito.py` pero todavía no
 existe ninguna implementación, así que las pruebas fallan al importar. La salida
@@ -152,10 +157,10 @@ Y para regresar:
 git checkout main && git stash pop
 ```
 
-Un detalle sobre esa comprobación: el ejercicio vive en `clase3/` del
+Un detalle sobre esa comprobación: el ejercicio vive en `actividad_carrito/` del
 repositorio del curso, pero sus commits se crearon cuando era un repositorio
 propio. Al volver a `bc82066` el árbol de trabajo queda con `spec.md` y
-`test_carrito.py` **en la raíz** (y `clase1/`, `clase2/`, `clase3/`
+`test_carrito.py` **en la raíz** (y `clase1/`, `clase2/`, `actividad_carrito/`
 desaparecen hasta que regreses a `main`), así que pytest se ejecuta desde ahí.
 
 ---

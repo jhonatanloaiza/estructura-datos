@@ -50,7 +50,7 @@ ERROR test_carrito.py
 
 -----------------------------------------------------------
  4) HISTORIAL DE GIT
-    El ejercicio vive en clase3/ del repositorio del curso.
+    El ejercicio vive en actividad_carrito/ del repositorio del curso.
     Sus cuatro commits se conservaron al integrarlo.
 -----------------------------------------------------------
 7ee6780 Add 'clase3/' from commit '2b10c28f9168bba642b89eca345194b5d3d19f4f'

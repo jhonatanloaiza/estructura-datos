@@ -137,7 +137,7 @@ bc82066   Define el contrato del TAD Carrito y sus pruebas             <- ROJO
 ```
 
 El commit `7ee6780` menciona `clase3/` porque ese era el nombre de la carpeta
-cuando se integró el ejercicio. Después se renombró a `actividad_carrito/`, pero
+cuando se integró el ejercicio. Después se renombró a `ejercicio_carrito/`, pero
 un mensaje de commit ya escrito no cambia: el historial dice lo que dijo en su
 momento, y eso es correcto.
 
@@ -157,10 +157,10 @@ Y para regresar:
 git checkout main && git stash pop
 ```
 
-Un detalle sobre esa comprobación: el ejercicio vive en `actividad_carrito/` del
+Un detalle sobre esa comprobación: el ejercicio vive en `ejercicio_carrito/` del
 repositorio del curso, pero sus commits se crearon cuando era un repositorio
 propio. Al volver a `bc82066` el árbol de trabajo queda con `spec.md` y
-`test_carrito.py` **en la raíz** (y `clase1/`, `clase2/`, `actividad_carrito/`
+`test_carrito.py` **en la raíz** (y `clase1/`, `clase2/`, `ejercicio_carrito/`
 desaparecen hasta que regreses a `main`), así que pytest se ejecuta desde ahí.
 
 ---

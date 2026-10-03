@@ -74,7 +74,44 @@ El asistente respetó el orden que exige el propio proyecto (`constitucion.md`
   el desempate por orden de llegada) y se confirmó que cada mutación hacía
   fallar al menos una prueba existente, antes de descartar los cambios.
 
-## 5. Qué quedó pendiente (no resuelto por la IA)
+## 5. Publicación y reconciliación del repositorio
+
+**2026-10-02/03.** Tras terminar el código, se pidió al asistente iniciar git
+y subir el trabajo a `https://github.com/jhonatanloaiza/estructura-datos`.
+Apareció una complicación que no era de código sino de control de versiones,
+y se resolvió en conjunto con quien pidió el trabajo (los comandos de git los
+ejecutó esa persona en un Codespace de GitHub, al que el asistente no tiene
+acceso; el asistente solo pudo diagnosticar y guiar desde la copia local en
+Windows):
+
+1. Al hacer `git push`, el repositorio remoto ya tenía historial propio
+   (`clase1`, `clase2`, `ejercicio_carrito` de actividades previas). El
+   asistente integró los commits de `act_3`/`act_4` **encima** de ese
+   historial remoto (`git rebase --onto origin/main --root`) en vez de
+   sobrescribirlo, y el push fue un avance normal (fast-forward).
+2. Días después, al abrir un Codespace de GitHub para el mismo repositorio,
+   las carpetas `act_3_lista_reproduccion` y `act_4_cola_atencion_medica` no
+   aparecían. El diagnóstico: ese Codespace tenía su **propio historial local**
+   (su propio `git init`, con commits desde `Initial commit` hasta
+   `agrego clase 1 y 2`), sin ningún ancestro en común con lo que había en
+   GitHub — dos historiales genuinamente no relacionados (`git log --not
+   origin/main` lo confirmó: 5 commits locales que GitHub no tenía).
+3. El asistente explicó la causa y guio, paso a paso, la reconciliación sin
+   perder trabajo: conservar primero el trabajo sin confirmar de `semana8`
+   (`git commit`), fusionar con `git pull origin main --allow-unrelated-histories`,
+   y sellar el commit de mezcla con `git commit --no-edit`. La fusión se
+   resolvió sola, sin conflictos de archivo.
+4. Una vez confirmado el `push` final, el asistente verificó desde su propia
+   copia (`git fetch`, `git log --graph`, `git ls-tree`) que el árbol
+   resultante tenía las seis carpetas esperadas sin duplicados, y corrió
+   `pytest` sobre `act_3` y `act_4` desde ese estado fusionado: 96 y 42
+   pruebas, respectivamente, siguieron pasando.
+5. Quedó un detalle cosmético sin corregir (a petición de quien pidió el
+   trabajo, por no tener impacto real): el mensaje del commit de mezcla
+   `fc0e452` incluye el texto de ayuda de git que debía descartarse como
+   comentario y no se descartó.
+
+## 6. Qué quedó pendiente (no resuelto por la IA)
 
 - Confirmar con la guía real del curso el número y nombre exacto de esta
   actividad (no se adjuntó una captura de la plataforma, a diferencia de la
@@ -82,3 +119,5 @@ El asistente respetó el orden que exige el propio proyecto (`constitucion.md`
 - Decidir si el proyecto se entrega solo o en equipo, y repartir los commits
   en ese caso.
 - Desplegar o ejecutar la API fuera de la máquina local, si el curso lo pide.
+- Limpiar el mensaje del commit de mezcla `fc0e452` (ver §5.5), si se decide
+  que vale la pena reescribir historial ya publicado.

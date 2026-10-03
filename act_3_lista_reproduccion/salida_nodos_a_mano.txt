@@ -1,0 +1,18 @@
+=== 1. Construir tres nodos y enlazarlos a mano ===
+cadena: ['Canción A', 'Canción B', 'Canción C']
+
+=== 2. Insertar 'Última hora' al principio, en el orden correcto ===
+cadena: ['Última hora', 'Canción A', 'Canción B', 'Canción C']
+
+=== 3. El error: reasignar el enlace antes de guardar el segundo ===
+antes:   ['A', 'B', 'C']
+después: ['A', 'C']
+
+=== 4. El mismo error en una inserción, sin variable de respaldo ===
+antes:   ['X', 'Y', 'Z']
+después: ['X', 'Nuevo']
+¿Y sigue existiendo? False
+¿Z sigue existiendo? False
+
+=== 5. El orden correcto: guardar antes de reasignar ===
+cadena: ['X', 'Nuevo', 'Y', 'Z']

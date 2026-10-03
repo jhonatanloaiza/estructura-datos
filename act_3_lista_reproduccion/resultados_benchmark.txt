@@ -1,0 +1,23 @@
+Lista de 5000 canciones, mediana de 7 corridas.
+
+| Operación | Arreglo (teórico) | Arreglo (medido) | Enlazada (teórico) | Enlazada (medido) |
+|---|---|---|---|---|
+| Insertar al principio | O(n) | 296.81 µs | O(1) | 0.26 µs |
+| Recorrer toda la lista | O(n) | 227.83 µs | O(n) | 188.45 µs |
+| Ir a la canción N | O(1) | 0.18 µs | O(n) | 59.64 µs |
+| Borrar la canción actual | O(n) | 149.78 µs | O(n) | 55.22 µs |
+
+Costo de un día de emisión (frecuencia × costo medido):
+
+| Operación | Veces/día | Arreglo (ms) | Enlazada (ms) |
+|---|---|---|---|
+| Insertar al principio | 40 | 11.87 | 0.01 |
+| Recorrer toda la lista | 3 | 0.68 | 0.57 |
+| Ir a la canción N | 200 | 0.04 | 11.93 |
+| Borrar la canción actual | 15 | 2.25 | 0.83 |
+| **Total** | | **14.84** | **13.33** |
+
+Relación enlazada / arreglo: 0.90x
+
+Inserciones/día que igualan ambos costos (resto fijo): 35
+Saltos 'ir a N'/día que igualan ambos costos (resto fijo): 225

@@ -1,0 +1,12 @@
+Simulación de 500 instantes, racha de nivel 1 entre 150 y 250. Semilla fija (706132).
+
+| Nivel | n atendidos | Media espera (estricta) | Peor espera (estricta) | Media espera (con reserva) | Peor espera (con reserva) |
+|---|---|---|---|---|---|
+| 1 | 203 | 0.00 | 0 | 4.64 | 22 |
+| 2 | 161 | 4.14 | 21 | 11.00 | 45 |
+| 3 | 109 | 34.15 | 137 | 15.39 | 66 |
+
+Análisis:
+- Nivel 3, peor caso: 137 instantes sin reserva de turnos vs. 66 con reserva.
+  La reserva de turnos reduce el peor caso de nivel 3 en 71 instantes: durante la racha de nivel 1, la cola estricta deja crecer su espera sin control; la cola con reserva la mantiene acotada por el patrón, como predice spec.md §3.
+- La reserva de turnos no es gratis: el peor caso de nivel 1 empeora en 22 instantes y el de nivel 2 en 24, porque ceder turnos reservados a nivel 3 retrasa a los niveles más urgentes mientras la cola de nivel 3 tiene demanda. Es el costo esperado de garantizar que nivel 3 nunca se quede sin turno.

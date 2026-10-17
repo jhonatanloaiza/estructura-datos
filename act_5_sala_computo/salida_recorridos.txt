@@ -1,0 +1,23 @@
+=== Recorrido por niveles, con la Cola de la Parte A ===
+nivel 0: ['Ingenieria']
+nivel 1: ['Sistemas', 'Industrial']
+nivel 2: ['EDD', 'BD', 'Procesos']
+nivel 3: ['2026-1', '2025-2']
+orden de visita: ['Ingenieria', 'Sistemas', 'Industrial', 'EDD', 'BD', 'Procesos', '2026-1', '2025-2']
+
+=== El mismo recorrido, cambiando la Cola por una Pila ===
+  visita: 'Ingenieria' (nivel 0)
+  visita: 'Industrial' (nivel 1)
+  visita: 'Procesos' (nivel 2)
+  visita: '2025-2' (nivel 3)
+  visita: 'Sistemas' (nivel 1)
+  visita: 'BD' (nivel 2)
+  visita: 'EDD' (nivel 2)
+  visita: '2026-1' (nivel 3)
+orden de visita: ['Ingenieria', 'Industrial', 'Procesos', '2025-2', 'Sistemas', 'BD', 'EDD', '2026-1']
+
+=== Comparación ===
+orden con cola: ['Ingenieria', 'Sistemas', 'Industrial', 'EDD', 'BD', 'Procesos', '2026-1', '2025-2']
+orden con pila: ['Ingenieria', 'Industrial', 'Procesos', '2025-2', 'Sistemas', 'BD', 'EDD', '2026-1']
+¿mismo conjunto de nodos? True
+¿mismo orden? False

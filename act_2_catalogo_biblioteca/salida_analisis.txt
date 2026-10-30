@@ -1,0 +1,73 @@
+PARTE C. MEDIANAS POR OPERACIÓN (µs)
+
+| Operación | 1.000 | 10.000 | 80.000 | 200.000 |
+|---|---:|---:|---:|---:|
+| `buscar_binaria` | 1,560 | 2,068 | 2,919 | 3,514 |
+| `buscar_lineal` | 24,274 | 253,140 | 1.963,462 | 4.613,499 |
+| `buscar_lineal_fallo` | 49,176 | 505,930 | 3.905,044 | 9.261,502 |
+| `buscar_lineal_fallo_disperso` | 45,409 | 468,407 | 8.252,151 | 28.569,093 |
+| `insertar_final` | 0,620 | 0,731 | 0,685 | 0,687 |
+| `insertar_inicio` | 52,078 | 672,564 | 11.021,537 | 34.515,940 |
+| `insertar_inicio_contiguo` | 52,868 | 588,357 | 4.779,378 | 12.016,045 |
+| `insertar_ordenado` | 28,456 | 332,646 | 5.231,178 | 16.992,376 |
+| `obtener` | 0,213 | 0,221 | 0,318 | 0,387 |
+
+PARTE C. FORMA MEDIDA CONTRA LO PREDICHO
+
+| Operación | Clase | Crecimiento 1.000→200.000 | Pendiente log-log | ¿Coincide? |
+|---|---|---:|---:|---|
+| `obtener` | O(1) | ×1,82 | 0,113 | no |
+| `insertar_final` | O(1) | ×1,11 | 0,019 | sí |
+| `buscar_binaria` | O(log n) | ×2,25 | 0,153 | no |
+| `insertar_inicio` | O(n) | ×662,77 | 1,226 | no |
+| `insertar_ordenado` | O(n) | ×597,15 | 1,206 | no |
+| `buscar_lineal` | O(n) | ×190,06 | 0,990 | sí |
+| `buscar_lineal_fallo` | O(n) | ×188,33 | 0,989 | sí |
+
+PARTE C. COSTO POR ELEMENTO (ns)
+
+| Elemento tocado | Memoria | 1.000 | 10.000 | 80.000 | 200.000 |
+|---|---|---:|---:|---:|---:|
+| Mover | dispersa | 52,1 | 67,3 | 137,8 | 172,6 |
+| Mover | contigua | 52,9 | 58,8 | 59,7 | 60,1 |
+| Comparar | dispersa | 45,4 | 46,8 | 103,2 | 142,8 |
+| Comparar | contigua | 49,2 | 50,6 | 48,8 | 46,3 |
+
+PARTE D. COSTO TOTAL DE s BÚSQUEDAS + 1 INSERCIÓN (ms)
+
+| Época | s | n | Ordenado | Desordenado | Gana | Ventaja |
+|---|---:|---:|---:|---:|---|---:|
+| vacaciones | 5 | 80.000 | 5,25 | 9,82 | ordenado | ×1,9 |
+| vacaciones | 5 | 200.000 | 17,01 | 23,07 | ordenado | ×1,4 |
+| normal | 50 | 80.000 | 5,38 | 98,17 | ordenado | ×18,3 |
+| normal | 50 | 200.000 | 17,17 | 230,68 | ordenado | ×13,4 |
+| exámenes | 300 | 80.000 | 6,11 | 589,04 | ordenado | ×96,5 |
+| exámenes | 300 | 200.000 | 18,05 | 1.384,05 | ordenado | ×76,7 |
+
+PARTE D. PUNTO DE EQUILIBRIO (búsquedas por inserción)
+
+| n | s* | Rango por cuartiles | s* en la corrida descartada |
+|---:|---:|---|---:|
+| 1.000 | 1,23 | 1,13 a 1,36 | 1,33 |
+| 10.000 | 1,32 | 1,28 a 1,39 | 1,54 |
+| 80.000 | 2,67 | 2,38 a 2,81 | 2,57 |
+| 200.000 | 3,69 | 3,35 a 4,14 | 3,25 |
+
+PARTE D. SENSIBILIDAD DEL EQUILIBRIO
+
+| Supuesto | s* con 80.000 | s* con 200.000 |
+|---|---:|---:|
+| Caso base: acierta, y el libro nuevo cae en cualquier parte | 2,67 | 3,69 |
+| Toda búsqueda falla (recorre el catálogo entero) | 1,34 | 1,84 |
+| Todo libro nuevo cae al inicio (peor caso del ordenado) | 5,62 | 7,49 |
+
+PARTE D. QUÉ TENDRÍA QUE PASAR PARA QUE VACACIONES CAMBIE
+
+n = 80.000: la búsqueda lineal tendría que parar, en promedio, en el primer 26,7 % del catálogo (hoy: 50 %).
+n = 200.000: la búsqueda lineal tendría que parar, en promedio, en el primer 36,9 % del catálogo (hoy: 50 %).
+
+PARTE D. HOY CONTRA EL AÑO QUE VIENE (s = 50)
+
+Hoy, 80.000 desordenado:           98,17 ms
+Sin cambiar, 200.000 desordenado:  230,68 ms (×2,3)
+Ordenando, 200.000 ordenado:       17,17 ms (÷5,7)

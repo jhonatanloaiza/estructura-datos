@@ -218,6 +218,89 @@ def test_la_busqueda_binaria_coincide_con_la_lineal_en_datos_al_azar():
         assert lista.buscar_binaria(x) == lista.buscar_lineal(x)
 
 
+# -- conteo de operaciones (respalda prediccion.md) -------------------------
+
+
+class Clave:
+    """Entero que cuenta las comparaciones que recibe."""
+
+    comparaciones = 0
+
+    def __init__(self, valor):
+        self.valor = valor
+
+    def __eq__(self, otra):
+        Clave.comparaciones += 1
+        return self.valor == otra.valor
+
+    def __lt__(self, otra):
+        Clave.comparaciones += 1
+        return self.valor < otra.valor
+
+
+class BloqueContado(list):
+    """Bloque que cuenta las escrituras que recibe."""
+
+    escrituras = 0
+
+    def __setitem__(self, i, x):
+        BloqueContado.escrituras += 1
+        super().__setitem__(i, x)
+
+
+def lista_de_claves(n):
+    lista = ListaArreglo(capacidad=n + 1)
+    for i in range(n):
+        lista.insertar(i, Clave(2 * i))
+    return lista
+
+
+def comparaciones_de(operacion):
+    Clave.comparaciones = 0
+    operacion()
+    return Clave.comparaciones
+
+
+def test_buscar_lineal_compara_hasta_dar_con_el_elemento():
+    n = 1000
+    lista = lista_de_claves(n)
+    assert comparaciones_de(lambda: lista.buscar_lineal(Clave(0))) == 1
+    assert comparaciones_de(lambda: lista.buscar_lineal(Clave(2 * 499))) == 500
+    assert comparaciones_de(lambda: lista.buscar_lineal(Clave(2 * (n - 1)))) == n
+
+
+def test_buscar_lineal_fallida_compara_con_todos():
+    n = 1000
+    lista = lista_de_claves(n)
+    assert comparaciones_de(lambda: lista.buscar_lineal(Clave(1))) == n
+
+
+@pytest.mark.parametrize("n, tope", [(1_000, 11), (10_000, 15), (80_000, 18), (200_000, 19)])
+def test_buscar_binaria_llega_justo_al_tope_de_la_prediccion(n, tope):
+    lista = lista_de_claves(n)
+    rng = random.Random(n)
+    objetivos = [rng.randrange(2 * n + 1) for _ in range(500)]
+    peor = max(comparaciones_de(lambda: lista.buscar_binaria(Clave(x))) for x in objetivos)
+    assert peor == tope
+
+
+@pytest.mark.parametrize("n, tope", [(1_000, 10), (80_000, 17)])
+def test_insertar_ordenado_compara_a_lo_sumo_lo_de_la_busqueda(n, tope):
+    lista = lista_de_claves(n)
+    assert comparaciones_de(lambda: lista.insertar_ordenado(Clave(n))) <= tope
+
+
+@pytest.mark.parametrize("pos, escrituras", [(0, 1001), (400, 601), (1000, 1)])
+def test_insertar_escribe_lo_desplazado_mas_el_elemento_nuevo(pos, escrituras):
+    lista = ListaArreglo(capacidad=2000)
+    for i in range(1000):
+        lista.insertar(i, i)
+    lista._datos = BloqueContado(lista._datos)
+    BloqueContado.escrituras = 0
+    lista.insertar(pos, "nuevo")
+    assert BloqueContado.escrituras == escrituras
+
+
 # -- restricciones del enunciado --------------------------------------------
 
 

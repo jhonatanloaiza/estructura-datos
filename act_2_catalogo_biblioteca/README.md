@@ -25,7 +25,7 @@ Desde esta carpeta:
 python -m pytest -v
 ```
 
-88 pruebas: el contrato y los casos extremos de `ListaArreglo`, el conteo real de
+89 pruebas: el contrato y los casos extremos de `ListaArreglo`, el conteo real de
 operaciones que respalda la predicción, la preparación de las mediciones y las
 cuentas de la decisión. Solo necesitan `pytest`.
 

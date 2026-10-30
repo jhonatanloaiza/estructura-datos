@@ -137,6 +137,15 @@ def test_insertar_al_inicio_justo_cuando_el_bloque_esta_lleno():
     assert list(lista) == ["a", "b", "c"]
 
 
+def test_al_llenarse_el_bloque_duplica_su_capacidad():
+    # De esto depende el O(1) amortizado de prediccion.md: crecer de a uno
+    # no pierde datos, pero haría que insertar al final fuera O(n).
+    lista = ListaArreglo(capacidad=4)
+    for i in range(5):
+        lista.insertar(i, i)
+    assert len(lista._datos) == 8
+
+
 @pytest.mark.parametrize("capacidad", [0, -1])
 def test_capacidad_no_positiva_lanza_error(capacidad):
     with pytest.raises(ValueError):
